@@ -4,7 +4,7 @@ import Layout from "@components/layout";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
+    <>
       <Head>
         <title>Next.js Starter Tailwind</title>
         <meta
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       <Component {...pageProps} />
-    </Layout>
+    </>
   );
 }
 
