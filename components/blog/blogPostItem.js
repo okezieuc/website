@@ -1,7 +1,8 @@
 import Image from "next/image";
 import CoverImage from "../../public/image.jpg";
+import { dateInWords } from '../../lib/dateInWords'
 
-export default function BlogPostItem() {
+export default function BlogPostItem({ post, }) {
   return (
     <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4">
       <a href="#_" class="block">
@@ -11,17 +12,16 @@ export default function BlogPostItem() {
         />
       </a>
       <h2 class="text-lg font-bold sm:text-xl md:text-2xl">
-        <a href="#_">Creating a Future Worth Living</a>
+        <a href="#_">{ post.title }</a>
       </h2>
       <p class="text-sm text-gray-500">
-        Learn the attributes you need to gain in order to build a future and
-        create a life that you are truly happy with.
+        {post.excerpt}
       </p>
       <p class="pt-2 text-xs font-medium">
         <a href="#_" class="mr-1 underline">
-          Mary Jane
+          {post.author}
         </a>{" "}
-        · <span class="mx-1">April 17, 2021</span>
+        · <span class="mx-1">{ dateInWords(post.date) }</span>
       </p>
     </div>
   );
