@@ -1,6 +1,8 @@
 import Layout from "@components/layout";
 import BlogPostHeading from "@components/blog/blogPostHeading";
 import { getPostBySlug, getAllPosts, getNextPosts } from "../../lib/api";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from "next-mdx-remote";
 
 export default function BlogPost({ post }) {
   return (
@@ -10,6 +12,9 @@ export default function BlogPost({ post }) {
         author={post.author}
         date={post.date}
       />
+      <article class="prose sm:prose lg:prose-lg xl:prose-2xl px-4 mx-auto my-12">
+        <MDXRemote {...post.content} />
+      </article>
     </Layout>
   );
 }
@@ -25,12 +30,14 @@ export async function getStaticProps({ params }) {
     "excerpt",
     "credits",
   ]);
-
+  const mdxSource = await serialize(post.content);
   const nextPosts = getNextPosts(params.slug);
+
   return {
     props: {
       post: {
         ...post,
+        content: mdxSource,
       },
       nextPosts,
     },
