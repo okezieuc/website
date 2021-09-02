@@ -12,7 +12,9 @@ export default function BlogPost({ post }) {
         author={post.author}
         date={post.date}
       />
-      <MDXRemote {...post.content} />
+      <article class="prose sm:prose lg:prose-lg xl:prose-2xl px-4 mx-auto my-12">
+        <MDXRemote {...post.content} />
+      </article>
     </Layout>
   );
 }
