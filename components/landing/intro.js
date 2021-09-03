@@ -7,10 +7,10 @@ export default function Intro() {
       <div class="relative max-w-3xl px-10 text-center text-white auto lg:px-0">
         <div class="flex flex-col w-full md:flex-row">
           <div class="flex justify-between">
-            <h1 class="relative flex flex-col text-6xl font-extrabold text-left text-black">
-              Crafting
+            <h1 class="relative flex flex-col text-5xl sm:text-6xl font-extrabold text-left text-black">
+              Creating
               <span>Powerful</span>
-              <span>Experiences</span>
+              <span>Students</span>
             </h1>
           </div>
           <div class="relative top-0 right-0 h-64 mt-12 md:-mt-16 md:absolute md:h-96 md:w-2/5">
