@@ -1,16 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 import CoverImage from "../../public/image.jpg";
 
 export default function Featured() {
   return (
     <div class="flex flex-col items-center sm:px-5 md:flex-row">
       <div class="w-full md:w-1/2">
-        <a href="#_" class="block">
-          <Image
-            src={CoverImage}
-            class="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96"
-          />
-        </a>
+        <Link href="/blog/navigating-studymono">
+          <a class="block">
+            <Image
+              src={CoverImage}
+              class="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96"
+            />
+          </a>
+        </Link>
       </div>
       <div class="flex flex-col items-start justify-center w-full h-full py-6 mb-6 md:mb-0 md:w-1/2">
         <div class="flex flex-col items-start justify-center h-full space-y-3 transform md:pl-10 lg:pl-16 md:space-y-5">
@@ -26,14 +29,16 @@ export default function Featured() {
             <span>Featured</span>
           </div>
           <h1 class="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl">
-            <a href="#_">Savory Templates. Sweet Designs.</a>
+            <Link href="/blog/navigating-studymono">
+              A Newcomer's Guide to Navigating Studymono
+            </Link>
           </h1>
           <p class="pt-2 text-sm font-medium">
             by{" "}
-            <a href="#_" class="mr-1 underline">
-              John Doe
-            </a>{" "}
-            · <span class="mx-1">April 23rd, 2021</span>
+            <span href="#_" class="mr-1 underline">
+              Okezie Chiedozie
+            </span>{" "}
+            · <span class="mx-1">19th May 2021</span>
           </p>
         </div>
       </div>
