@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/taylorbryant/next-starter-tailwind#readme",
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/client": "^2.16.0",
     "@tailwindcss/typography": "^0.4.1",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
+    "katex": "^0.13.18",
     "next": "11.0.1",
     "next-mdx-remote": "^3.0.4",
     "path": "^0.12.7",
