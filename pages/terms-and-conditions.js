@@ -1,8 +1,19 @@
+import Head from "next/head"
 import Layout from "@components/layout";
 
 export default function TermsAndConditions() {
   return (
     <Layout>
+      <Head>
+        <title>Terms and Conditions - Studymono</title>
+        <meta property="og:title" content="Terms and Conditions - Studymono" />
+        <link
+          rel="canonical"
+          href="https://www.studymono.com/terms-and-conditions"
+        />
+        <meta name="twitter:title" content="Terms and Conditions - Studymono" />
+      </Head>
+
       <article class="prose sm:prose lg:prose-lg xl:prose-2xl px-4 mx-auto my-12 md:my-24">
         <h1>Terms and Conditions</h1>
         <blockquote>Last updated: 12th May 2021</blockquote>
