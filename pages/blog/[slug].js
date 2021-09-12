@@ -1,4 +1,5 @@
-import Head from "next/head"
+import Head from "next/head";
+import { useRouter } from "next/router";
 import Layout from "@components/layout";
 import BlogPostHeading from "@components/blog/blogPostHeading";
 import { getPostBySlug, getAllPosts, getNextPosts } from "../../lib/api";
@@ -6,6 +7,9 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 
 export default function BlogPost({ post }) {
+  const router = useRouter();
+  const { slug } = router.query;
+
   return (
     <Layout>
       <Head>
