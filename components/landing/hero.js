@@ -3,7 +3,7 @@ import Container from "@components/container";
 
 function HeroNotificationBadge() {
   return (
-    <div class="border rounded-2xl w-max mx-auto px-2 py-1 border-indigo-700 bg-white text-indigo-700 font-sm sm:font-md">
+    <div class="border rounded-2xl w-max mx-auto px-2 py-1 border-indigo-700 bg-white text-indigo-700 text-sm sm:text-md">
       <Link href="blog/shutting-down-past-questions-pages-september-2021">
         <a>
           <span className="blink mr-1">●</span>
