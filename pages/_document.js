@@ -18,7 +18,9 @@ class MyDocument extends Document {
           <meta name="twitter:creator" content="@OkezieChiedozie" />
         </Head>
         <body>
-          <Main />
+          <div class="font-body">
+            <Main />
+          </div>
           <NextScript />
         </body>
       </Html>

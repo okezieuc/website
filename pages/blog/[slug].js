@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Layout from "@components/layout";
+import Container from "@components/container";
 import BlogPostHeading from "@components/blog/blogPostHeading";
 import { getPostBySlug, getAllPosts, getNextPosts } from "../../lib/api";
 import { serialize } from "next-mdx-remote/serialize";
@@ -63,9 +64,11 @@ export default function BlogPost({ post }) {
         author={post.author}
         date={post.date}
       />
-      <article class="prose sm:prose lg:prose-lg xl:prose-2xl px-4 mx-auto my-12">
+      <Container>
+      <article class="prose sm:prose lg:prose-lg xl:prose-2xl my-12 mx-auto">
         <MDXRemote {...post.content} />
       </article>
+      </Container>
     </Layout>
   );
 }

@@ -4,7 +4,7 @@ import CoverImage from "../../public/image.jpg";
 
 export default function Featured() {
   return (
-    <div class="flex flex-col items-center sm:px-5 md:flex-row">
+    <div class="flex flex-col items-center md:flex-row">
       <div class="w-full md:w-1/2">
         <Link href="/blog/navigating-studymono">
           <a class="block">
