@@ -1,36 +1,40 @@
+import Link from "next/link";
+import Container from "@components/container";
+
+function HeroNotificationBadge() {
+  return (
+    <div class="border rounded-2xl w-max mx-auto px-2 py-1 border-indigo-700 bg-white text-indigo-700 text-sm sm:text-md">
+      <Link href="blog/shutting-down-past-questions-pages-september-2021">
+        <a>
+          <span className="blink mr-1">●</span>
+          We're shutting down past question pages
+        </a>
+      </Link>
+    </div>
+  );
+}
+
+function CallToAction() {
+  return (
+    <div class="w-max bg-indigo-700 px-4 md:px-8 py-2 md:py-4 mx-auto text-white text-sm md:text-xl border border-indigo-700 rounded-2xl mt-8 hover:bg-indigo-600">
+      <Link href="#">Newsletter coming soon</Link>
+    </div>
+  );
+}
+
 export default function Hero() {
   return (
-    <section class="w-full px-6 pb-12 antialiased bg-white">
-      <div class="mx-auto max-w-7xl">
-        <div class="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center">
-          <h1 class="text-5xl font-extrabold leading-10 tracking-tight text-left text-gray-900 md:text-center sm:leading-none md:text-6xl lg:text-7xl">
-            <span class="inline md:block">Start Crafting Your</span>{" "}
-            <span class="relative mt-2 text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 to-indigo-500 md:inline-block">
-              Next Great Idea
-            </span>
-          </h1>
-          <div class="mx-auto mt-5 text-gray-500 md:mt-12 md:max-w-lg md:text-center lg:text-lg">
-            Simplifying the creation of landing pages, blog pages, application
-            pages and so much more!
-          </div>
-          <div class="flex flex-col items-center mt-12 text-center">
-            <span class="relative inline-flex w-full md:w-auto">
-              <a
-                href="#_"
-                type="button"
-                class="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white bg-indigo-600 border border-transparent rounded-full md:w-auto hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
-              >
-                Purchase Now
-              </a>
-              <span class="absolute top-0 right-0 px-2 py-1 -mt-3 -mr-6 text-xs font-medium leading-tight text-white bg-green-400 rounded-full">
-                only $15/mo
-              </span>
-            </span>
-            <a href="#" class="mt-3 text-sm text-indigo-500">
-              Learn More
-            </a>
-          </div>
-        </div>
+    <section class="w-full bg-gray-100 pt-12 md:pt-20 pb-48 text-center">
+      <div class="sm:max-w-xl md:max-w-4xl px-4 md:px-0 mx-auto">
+        <HeroNotificationBadge />
+        <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900">
+          We're building an Educational Platform for Nigerians
+        </h1>
+        <h2 class="text-md sm:text-lg md:text-2xl mt-2">
+          Studymono is an online platform comprising of past questions and
+          articles to help you to be better prepared for any exam you face
+        </h2>
+        <CallToAction />
       </div>
     </section>
   );

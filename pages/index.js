@@ -1,13 +1,17 @@
-import Head from "next/head"
+import Head from "next/head";
 import Image from "next/image";
+import { getLatestPosts } from "../lib/api";
 import Layout from "@components/layout";
 import Hero from "@components/landing/hero";
-import Intro from "@components/landing/intro";
-import Features from "@components/landing/features";
+import Vision from "@components/landing/vision";
+import Stats from "@components/landing/stats";
+import Quote from "@components/landing/quote";
+import LatestBlogs from "@components/latestBlogs";
+import CallToAction from "@components/callToAction";
 import CTA from "@components/landing/cta";
 import FAQ from "@components/landing/faq";
 
-export default function IndexPage() {
+export default function IndexPage({ posts }) {
   return (
     <Layout>
       <Head>
@@ -44,10 +48,20 @@ export default function IndexPage() {
       </Head>
 
       <Hero />
-      <Intro />
-      <Features />
-      <FAQ />
-      <CTA />
+      <Vision />
+      <Stats />
+      <Quote />
+      <LatestBlogs posts={posts} />
+      <CallToAction />
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const posts = getLatestPosts();
+  return {
+    props: {
+      posts,
+    },
+  };
 }
