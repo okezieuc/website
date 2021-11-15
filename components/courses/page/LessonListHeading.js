@@ -1,6 +1,6 @@
 export default function LessonListHeading() {
   return (
-    <div>
+    <div className="mt-16">
       <div className="flex items-end">
         <div className="border-b-2 border-indigo-600 pr-8">Course</div>
         <div className="flex-1 h-0.5 w-12 bg-gray-300"></div>

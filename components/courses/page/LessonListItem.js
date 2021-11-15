@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function LessonListItem() {
   return (
-    <div className="flex items-center">
-      <div className="text-2xl w-12 text-center">1</div>
+    <div className="flex items-center my-6">
+      <div className="text-2xl w-12">1</div>
       <div className="flex-1">
         <div className="text-xl">
           <Link href="/learn/abcd1234/what-makes-carbon-so-special">

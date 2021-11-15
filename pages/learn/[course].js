@@ -20,7 +20,7 @@ export default function CoursePage() {
       </div>
       <CourseResumeButton />
       <LessonListHeading />
-      <div>
+      <div className="-mt-6">
         <LessonListItem />
         <LessonListItem />
         <LessonListItem />
