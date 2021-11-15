@@ -1,4 +1,5 @@
 import Layout from "@components/app/layout";
+import MyCoursesItem from "@components/courses/home/MyCoursesItem"
 
 export default function CoursesPage() {
   return (
@@ -13,10 +14,14 @@ export default function CoursesPage() {
         </div>
       </div>
       <div>
-        <h2 className="text-2xl font-heading">Your Courses</h2>
+        <h2 className="text-xl font-heading">My Courses</h2>
+        <div className="grid grid-cols-1 divide-y divide-gray-300">
+          <MyCoursesItem />
+          <MyCoursesItem />
+        </div>
       </div>
       <div>
-        <h2 className="text-2xl font-heading">Explore</h2>
+        <h2 className="text-xl font-heading">Explore</h2>
       </div>
     </Layout>
   );
