@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function MyCoursesItem() {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center my-4">
       <div className="flex-1">
         <div className="text-xl">
           <Link href="/learn/introduction-to-oranic-chemistry">
