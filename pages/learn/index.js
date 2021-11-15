@@ -1,5 +1,6 @@
 import Layout from "@components/app/layout";
 import MyCoursesItem from "@components/courses/home/MyCoursesItem"
+import ExploreItem from "@components/courses/home/ExploreItem"
 
 export default function CoursesPage() {
   return (
@@ -22,6 +23,10 @@ export default function CoursesPage() {
       </div>
       <div>
         <h2 className="text-xl font-heading">Explore</h2>
+        <div className="grid grid-cols-1 divide-y divide-gray-300">
+          <ExploreItem />
+          <ExploreItem />
+        </div>
       </div>
     </Layout>
   );
