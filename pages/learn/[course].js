@@ -1,4 +1,6 @@
 import Layout from "@components/app/layout";
+import CourseResumeButton from "@components/courses/page/CourseResumeButton";
+import LessonListHeading from "@components/courses/page/LessonListHeading";
 
 export default function CoursePage() {
   return (
@@ -15,6 +17,8 @@ export default function CoursePage() {
           Let's imagine the sentence before this is gramatically correct.
         </div>
       </div>
+      <CourseResumeButton />
+      <LessonListHeading />
     </Layout>
   );
 }
