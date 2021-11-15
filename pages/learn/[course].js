@@ -1,6 +1,7 @@
 import Layout from "@components/app/layout";
 import CourseResumeButton from "@components/courses/page/CourseResumeButton";
 import LessonListHeading from "@components/courses/page/LessonListHeading";
+import LessonListItem from "@components/courses/page/LessonListItem";
 
 export default function CoursePage() {
   return (
@@ -19,6 +20,11 @@ export default function CoursePage() {
       </div>
       <CourseResumeButton />
       <LessonListHeading />
+      <div>
+        <LessonListItem />
+        <LessonListItem />
+        <LessonListItem />
+      </div>
     </Layout>
   );
 }
