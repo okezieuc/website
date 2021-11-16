@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Container from "@components/container";
+import { handleLogin } from "../lib/supabaseClient";
 
 export default function Header() {
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
@@ -24,9 +25,12 @@ export default function Header() {
               <Link href="/blog">Blog</Link>
             </div>
             <div class="flex-grow"></div>
-            <div class="bg-indigo-700 py-1 md:py-2 px-2 md:px-6 rounded-2xl	text-white hover:bg-indigo-600">
-              <a>Newsletter starting ending of September</a>
-            </div>
+            <button
+              class="bg-indigo-700 py-1 md:py-2 px-2 md:px-6 rounded-2xl	text-white hover:bg-indigo-600"
+              onClick={handleLogin}
+            >
+              LOG IN
+            </button>
           </div>
         </Container>
       </div>
