@@ -1,11 +1,12 @@
-export default function ExploreItem() {
+import Link from "next/link";
+
+export default function ExploreItem({ course }) {
   return (
     <div className="my-4">
-      <div className="text-xl">Introduction to Organic Chemistry</div>
-      <div className="text-md">
-        Explore the forces that drive the interactions between carbon and
-        hydrogen
-      </div>
+      <Link href={`/learn/${course.slug}`}>
+        <a className="text-xl">{course.title}</a>
+      </Link>
+      <div className="text-md truncate">{course.description}</div>
     </div>
   );
 }

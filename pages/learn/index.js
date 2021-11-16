@@ -1,8 +1,9 @@
 import Layout from "@components/app/layout";
 import MyCoursesItem from "@components/courses/home/MyCoursesItem";
 import ExploreItem from "@components/courses/home/ExploreItem";
+import { getAllCourses } from "lib/graphcms";
 
-export default function CoursesPage() {
+export default function CoursesPage({ courses }) {
   return (
     <Layout>
       <div className="max-w-xl">
@@ -28,10 +29,20 @@ export default function CoursesPage() {
           <h2 className="text-xl font-heading">Explore</h2>
         </div>
         <div className="grid grid-cols-1">
-          <ExploreItem />
-          <ExploreItem />
+          {courses.map((course) => (
+            <ExploreItem course={course} />
+          ))}
         </div>
       </div>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const courses = (await getAllCourses()) || [];
+  return {
+    props: {
+      courses,
+    },
+  };
 }
