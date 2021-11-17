@@ -7,8 +7,9 @@ export default function LessonListHeading() {
       </div>
       <div className="flex items-center py-8">
         <div className="flex-1 text-2xl font-bold">Lessons</div>
-        <div className="text-lg font-semibold">Progress</div>
       </div>
     </div>
   );
 }
+
+// <div className="text-lg font-semibold">Progress</div>
