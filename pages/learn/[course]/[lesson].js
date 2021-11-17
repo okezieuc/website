@@ -1,7 +1,8 @@
 import Layout from "@components/app/layout";
+import { getLessonData } from "lib/graphcms";
 import { supabase } from "lib/supabaseClient";
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req, params }) {
   const { user } = await supabase.auth.api.getUserByCookie(req);
 
   if (!user) {
@@ -9,21 +10,26 @@ export async function getServerSideProps({ req }) {
     return { props: {}, redirect: { destination: "/", permanent: false } };
   }
 
-  return { props: {} };
+  const lesson = (await getLessonData(params.lesson, params.course)) || {};
+
+  if (lesson.course.length === 0) {
+    return { props: {}, redirect: { destination: "/learn", permanent: false } };
+  }
+
+  return {
+    props: {
+      lesson,
+    },
+  };
 }
 
-export default function Lesson() {
+export default function Lesson({ lesson }) {
   return (
     <Layout>
       <div className="md:-mx-12 lg:-mx-20 md:px-12 lg:px-20 border-b border-gray-300">
         <div className="max-w-2xl my-24">
-          <h1 className="text-5xl font-bold font-heading">
-            What makes carbon so special?
-          </h1>
-          <h2 className="text-2xl">
-            Dive into the properties of carbon that allow it to react in ways
-            other elements cannot.
-          </h2>
+          <h1 className="text-5xl font-bold font-heading">{lesson.title}</h1>
+          <h2 className="text-2xl">{lesson.description}</h2>
         </div>
       </div>
       <div className="text-xl mt-12">
