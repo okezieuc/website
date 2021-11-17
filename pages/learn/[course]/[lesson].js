@@ -1,4 +1,16 @@
 import Layout from "@components/app/layout";
+import { supabase } from "lib/supabaseClient";
+
+export async function getServerSideProps({ req }) {
+  const { user } = await supabase.auth.api.getUserByCookie(req);
+
+  if (!user) {
+    // If no user, redirect to index.
+    return { props: {}, redirect: { destination: "/", permanent: false } };
+  }
+
+  return { props: {} };
+}
 
 export default function Lesson() {
   return (

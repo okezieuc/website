@@ -1,6 +1,9 @@
+import { handleLogin, handleLogout } from "lib/supabaseClient";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Layout({ children }) {
+  const router = useRouter();
   return (
     <div class="md:flex h-screen">
       <div class="hidden md:block sticky top-0">
@@ -17,10 +20,10 @@ export default function Layout({ children }) {
               launch!
             </div>
             <div class="bg-indigo-700 hover:bg-indigo-600 p-2 rounded-full mx-auto w-full text-center text-white font-semibold">
-              <a>Sign up to get notified</a>
+              <button onClick={() => handleLogin("/learn")}>Sign in</button>
             </div>
             <div class="bg-gray-900 hover:bg-gray-800 mt-2 p-2 rounded-full mx-auto w-full text-center text-white font-semibold">
-              <a>Learn more</a>
+              <button onClick={() => handleLogout(router)}>Sign out</button>
             </div>
           </div>
         </div>

@@ -1,20 +1,27 @@
-import "../css/index.css";
 import { useEffect } from "react";
-import Head from "next/head";
-import Layout from "@components/layout";
+import { useRouter } from "next/router";
 import { supabase } from "lib/supabaseClient";
 
-function MyApp({ Component, pageProps }) {
+export default function Redirect() {
+  const router = useRouter();
+
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, session) => {
-        if (event !== "SIGNED_IN") {
+        if (event === "SIGNED_IN") {
           fetch("/api/auth", {
             method: "POST",
             headers: new Headers({ "Content-Type": "application/json" }),
             credentials: "same-origin",
             body: JSON.stringify({ event, session }),
-          }).then((res) => res.json());
+          })
+            .then((res) => res.json())
+            .then(() => {
+              const path = router.asPath.slice(9);
+              const params = new URLSearchParams(path);
+              const destination = params.get("destination");
+              router.push(destination);
+            });
         }
       }
     );
@@ -24,11 +31,5 @@ function MyApp({ Component, pageProps }) {
     };
   }, []);
 
-  return (
-    <>
-      <Component {...pageProps} />
-    </>
-  );
+  return <div>Getting things ready, please wait.</div>;
 }
-
-export default MyApp;
