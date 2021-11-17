@@ -1,19 +1,14 @@
 import Link from "next/link";
 
-export default function LessonListItem() {
+export default function LessonListItem({ lesson, courseid, lessonNumber }) {
   return (
     <div className="flex items-center my-6">
-      <div className="text-2xl w-12">1</div>
+      <div className="text-2xl w-12">{lessonNumber}</div>
       <div className="flex-1">
         <div className="text-xl">
-          <Link href="/learn/abcd1234/what-makes-carbon-so-special">
-            What makes carbon so special?
-          </Link>
+          <Link href={`/learn/${courseid}/${lesson.slug}`}>{lesson.title}</Link>
         </div>
-        <div className="text-md">
-          Dive into the properties of carbon that allow it to react in ways
-          other elements cannot.
-        </div>
+        <div className="text-md">{lesson.description}</div>
       </div>
       <div className="text-md w-32 text-right">Completed</div>
     </div>

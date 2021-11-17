@@ -2,29 +2,50 @@ import Layout from "@components/app/layout";
 import CourseResumeButton from "@components/courses/page/CourseResumeButton";
 import LessonListHeading from "@components/courses/page/LessonListHeading";
 import LessonListItem from "@components/courses/page/LessonListItem";
+import { getAllCourseSlugs, getCourseBySlug } from "lib/graphcms";
 
-export default function CoursePage() {
+export default function CoursePage({ course }) {
   return (
     <Layout>
       <div className="max-w-xl">
-        <h1 className="text-5xl font-bold font-heading">
-          Introduction to organic chemistry
-        </h1>
-        <div className="mt-4">
-          A quick brown fox jumped over the lazy dog. Next time, it learnt to
-          look before it leaps.
-          <br />
-          <br />
-          Let's imagine the sentence before this is gramatically correct.
-        </div>
+        <h1 className="text-5xl font-bold font-heading">{course.title}</h1>
+        <div className="mt-4">{course.description}</div>
       </div>
       <CourseResumeButton />
       <LessonListHeading />
       <div className="-mt-6">
-        <LessonListItem />
-        <LessonListItem />
-        <LessonListItem />
+        {course.lessons.map((lesson, index) => (
+          <LessonListItem
+            lesson={lesson}
+            courseid={course.id}
+            lessonNumber={index + 1}
+            key={lesson.slug}
+          />
+        ))}
       </div>
     </Layout>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const course = (await getCourseBySlug(params.course)) || {};
+  return {
+    props: {
+      course,
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const courses = (await getAllCourseSlugs()) || [];
+  return {
+    paths: courses.map((course) => {
+      return {
+        params: {
+          course: course.slug,
+        },
+      };
+    }),
+    fallback: false,
+  };
 }
