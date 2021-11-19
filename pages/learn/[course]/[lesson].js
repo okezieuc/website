@@ -2,10 +2,7 @@ import Layout from "@components/app/layout";
 import { getLessonData } from "lib/graphcms";
 import { supabase } from "lib/supabaseClient";
 import { serialize } from "next-mdx-remote/serialize";
-import ReactMarkdown from "react-markdown/react-markdown.min";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
-
+import { MDXRemote } from 'next-mdx-remote';
 import "katex/dist/katex.min.css";
 
 export async function getServerSideProps({ req, params }) {
@@ -33,7 +30,7 @@ export async function getServerSideProps({ req, params }) {
   };
 }
 
-export default function Lesson({ lesson }) {
+export default function Lesson({ lesson, source }) {
   return (
     <Layout>
       <div className="md:-mx-12 lg:-mx-20 md:px-12 lg:px-20 border-b border-gray-300">
@@ -43,11 +40,7 @@ export default function Lesson({ lesson }) {
         </div>
       </div>
       <div className="prose sm:prose-lg lg:prose-lg xl:prose-2xl mt-12 mx-auto">
-        <ReactMarkdown
-          children={lesson.content.markdown}
-          remarkPlugins={[remarkMath]}
-          rehypePlugins={[rehypeKatex]}
-        />
+        <MDXRemote {...source} />
       </div>
     </Layout>
   );
