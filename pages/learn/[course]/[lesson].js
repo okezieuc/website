@@ -3,6 +3,8 @@ import { getLessonData } from "lib/graphcms";
 import { supabase } from "lib/supabaseClient";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from 'next-mdx-remote';
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 
 export async function getServerSideProps({ req, params }) {
@@ -20,7 +22,12 @@ export async function getServerSideProps({ req, params }) {
   }
 
   const source = lesson.content.markdown;
-  const mdxSource = await serialize(source);
+  const mdxSource = await serialize(source, {
+    mdxOptions: {
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    },
+  });
 
   return {
     props: {
