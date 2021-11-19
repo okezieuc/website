@@ -17,9 +17,7 @@ export default function Redirect() {
           })
             .then((res) => res.json())
             .then(() => {
-              const path = router.asPath.slice(9);
-              const params = new URLSearchParams(path);
-              const destination = params.get("destination");
+              const destination = sessionStorage.getItem("sessionAuthDestination");
               router.push(destination);
             });
         }
