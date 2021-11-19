@@ -1,6 +1,11 @@
 import Layout from "@components/app/layout";
 import { getLessonData } from "lib/graphcms";
 import { supabase } from "lib/supabaseClient";
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote } from 'next-mdx-remote';
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 
 export async function getServerSideProps({ req, params }) {
   const { user } = await supabase.auth.api.getUserByCookie(req);
@@ -16,14 +21,23 @@ export async function getServerSideProps({ req, params }) {
     return { props: {}, redirect: { destination: "/learn", permanent: false } };
   }
 
+  const source = lesson.content.markdown;
+  const mdxSource = await serialize(source, {
+    mdxOptions: {
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    },
+  });
+
   return {
     props: {
       lesson,
+      source: mdxSource,
     },
   };
 }
 
-export default function Lesson({ lesson }) {
+export default function Lesson({ lesson, source }) {
   return (
     <Layout>
       <div className="md:-mx-12 lg:-mx-20 md:px-12 lg:px-20 border-b border-gray-300">
@@ -32,39 +46,8 @@ export default function Lesson({ lesson }) {
           <h2 className="text-2xl">{lesson.description}</h2>
         </div>
       </div>
-      <div className="text-xl mt-12">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae
-          sodales ex, vel consequat sem. Donec quis faucibus mauris. Vivamus
-          condimentum bibendum felis id egestas. Mauris convallis ipsum ac
-          ligula ultricies tristique. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Nulla non turpis ultrices, tincidunt magna id, semper
-          lectus.
-        </p>
-        <p>
-          Sed vel ligula a dolor finibus lobortis. Etiam viverra tempus auctor.
-          Phasellus congue quis neque ut commodo. Sed ultrices augue et lorem
-          vestibulum maximus. Fusce ac velit eget nisi rhoncus feugiat et vel
-          magna.
-        </p>
-        <p>
-          Quisque luctus augue nec sem facilisis gravida. Integer lacus nisi,
-          varius et scelerisque a, luctus at purus. Etiam feugiat tellus eu elit
-          ultricies posuere. Vestibulum pulvinar metus vel sollicitudin mattis.
-          Sed sed ullamcorper lacus, eu interdum mi. Nulla facilisi. In at
-          blandit dolor. Maecenas elementum, lorem nec blandit interdum, risus
-          felis maximus neque, a aliquam velit magna eu nisl. Vivamus volutpat
-          enim at libero vestibulum elementum. Aenean odio libero, lacinia in
-          facilisis eu, tincidunt vehicula ipsum. Donec vitae arcu at odio
-          scelerisque commodo a et orci.
-        </p>
-        <p>
-          Nam ac lacinia lorem. Nunc feugiat ligula sed eros malesuada
-          efficitur. Integer tellus ligula, maximus vitae lorem et, luctus
-          placerat neque. Suspendisse molestie lobortis erat ac placerat. Sed
-          placerat lacus in ante pulvinar, at ultrices odio congue. Fusce id
-          elit nec ex porta maximus. Vivamus mollis lobortis ex vel hendrerit.
-        </p>
+      <div className="prose sm:prose-lg lg:prose-lg xl:prose-2xl mt-12 mx-auto">
+        <MDXRemote {...source} />
       </div>
     </Layout>
   );
