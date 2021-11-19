@@ -8,10 +8,10 @@ export default function LessonListItem({
   isLoggedIn,
 }) {
   return (
-    <div className="flex items-center my-6">
+    <div className="flex sm:items-center my-6">
       <div className="text-2xl w-12">{lessonNumber}</div>
       <div className="flex-1">
-        <div className="text-xl">
+        <div className="text-xl font-semibold">
           {isLoggedIn ? (
             <Link href={`/learn/${courseid}/${lesson.slug}`}>
               {lesson.title}

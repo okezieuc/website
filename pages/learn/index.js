@@ -17,15 +17,6 @@ export default function CoursesPage({ courses }) {
       </div>
       <div className="mt-24">
         <div className="py-4 border-b border-gray-300">
-          <h2 className="text-xl font-heading">My Courses</h2>
-        </div>
-        <div className="grid grid-cols-1">
-          <MyCoursesItem />
-          <MyCoursesItem />
-        </div>
-      </div>
-      <div className="mt-12">
-        <div className="py-4 border-b border-gray-300">
           <h2 className="text-xl font-heading">Explore</h2>
         </div>
         <div className="grid grid-cols-1">
