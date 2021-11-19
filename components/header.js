@@ -29,7 +29,7 @@ export default function Header() {
               class="bg-indigo-700 py-1 md:py-2 px-2 md:px-6 rounded-2xl	text-white hover:bg-indigo-600"
               onClick={() => handleLogin("/learn")}
             >
-              LOG IN
+              Sign In
             </button>
           </div>
         </Container>
