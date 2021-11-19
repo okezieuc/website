@@ -1,2 +1,2 @@
 # Studymono
-## The Educational Platform for Nigerian Students
+## The Education Platform for Nigerian Students
