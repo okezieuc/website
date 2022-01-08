@@ -30,7 +30,7 @@ export default function Hero() {
       <div class="sm:max-w-xl md:max-w-4xl px-4 md:px-0 mx-auto">
         <HeroNotificationBadge />
         <h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900">
-          We're building an Educational Platform for Nigerians
+          Prepare for Exams, One Past Question at a Time
         </h1>
         <h2 class="text-md sm:text-lg md:text-2xl mt-2">
           Studymono is an online platform comprising of past questions and
