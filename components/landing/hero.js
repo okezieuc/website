@@ -19,7 +19,7 @@ function HeroNotificationBadge() {
 function CallToAction() {
   return (
     <div class="w-max bg-indigo-700 px-4 md:px-8 py-2 md:py-4 mx-auto text-white text-sm md:text-xl border border-indigo-700 rounded-2xl mt-8 hover:bg-indigo-600">
-      <Link href="/">Go To Past Questions</Link>
+      <Link href="/pastquestions">Go To Past Questions</Link>
     </div>
   );
 }
