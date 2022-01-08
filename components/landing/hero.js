@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Container from "@components/container";
 
+// TODO: Replace links with actual links to the past question page
+
 function HeroNotificationBadge() {
   return (
     <div class="border rounded-2xl w-max mx-auto px-2 py-1 border-indigo-700 bg-white text-indigo-700 text-sm sm:text-md">
@@ -17,7 +19,7 @@ function HeroNotificationBadge() {
 function CallToAction() {
   return (
     <div class="w-max bg-indigo-700 px-4 md:px-8 py-2 md:py-4 mx-auto text-white text-sm md:text-xl border border-indigo-700 rounded-2xl mt-8 hover:bg-indigo-600">
-      <Link href="#">Newsletter coming soon</Link>
+      <Link href="/">Go To Past Questions</Link>
     </div>
   );
 }
