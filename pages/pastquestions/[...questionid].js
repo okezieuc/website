@@ -1,5 +1,6 @@
 import Container from "@components/container"
 import Layout from "@components/layout"
+import PastQuestionNavigation from "@components/pastquestions/page/pastQuestionNavigation"
 import PastQuestionQuestion from "@components/pastquestions/page/pastQuestionQuestion"
 import { subjectSchema } from "lib/pastQuestionNamingSchema"
 import sanity from "lib/sanity"
@@ -13,6 +14,7 @@ export default function PastQuestionPage({ questiondata, otherdata, questionid }
                     {questiondata.exam.toUpperCase()} {subjectSchema[questiondata.subject.toUpperCase()]}
                 </p>
                 <PastQuestionQuestion data={questiondata} />
+                <PastQuestionNavigation otherdata={otherdata} />
             </Container>
         </div>
     </Layout>)
