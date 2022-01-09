@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { sanitySubjectPageQuery, sanitySubjectPageCountQuery } from "lib/sanityQueries";
 import { subjectSchema } from "lib/pastQuestionNamingSchema";
 import sanity from "lib/sanity";
@@ -13,6 +14,9 @@ export default function PastQuestionSubjectPage({ subjectdata, count }) {
   const { subject, number } = router.query
 
   return (<Layout>
+    <Head>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" />
+    </Head>
     <PastQuestionPageHero subject={subjectSchema[subject.toUpperCase()]} page={number} />
     <Container>
       {
