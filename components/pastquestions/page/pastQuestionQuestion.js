@@ -5,12 +5,12 @@ export default function PastQuestionQuestion({ data }) {
     return (<div>
         {
             data.prompt ?
-                <h1 className="text-lg sm:text-xl md:text-2xl mb-1 md:mb-4 leading-5">
+                <h1 className="text-lg sm:text-xl md:text-2xl mb-1 md:mb-4 leading-8">
                     {data.prompt}
                 </h1>
                 : null
         }
-        <h1 className="text-2xl sm:text-3xl md:text-4xl mb-2 md:mb-8 leading-5">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl mb-2 md:mb-8 leading-8">
             <PastQuestionBlockContent
                 body={data.question}
             />
