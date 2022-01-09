@@ -24,7 +24,7 @@ export default function Header() {
               <Link href="/blog">Blog</Link>
             </div>
             <div class="flex-grow"></div>
-            <div class="bg-indigo-700 py-1 md:py-2 px-2 md:px-6 rounded-2xl	text-white hover:bg-indigo-600">
+            <div class="bg-indigo-700 py-1 md:py-2 px-2 md:px-6 rounded-2xl	text-white hover:bg-indigo-600 transition-colors">
               <Link href="/pastquestions">Past Questions</Link>
             </div>
           </div>
