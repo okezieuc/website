@@ -1,8 +1,21 @@
+import Container from "@components/container"
+import Layout from "@components/layout"
+import PastQuestionQuestion from "@components/pastquestions/page/pastQuestionQuestion"
+import { subjectSchema } from "lib/pastQuestionNamingSchema"
 import sanity from "lib/sanity"
 import { sanityPastQuestionIdQuery, sanityPastQuestionQuery, sanitySimilarPastQuestionIdQuery } from "lib/sanityQueries"
 
 export default function PastQuestionPage({ questiondata, otherdata, questionid }) {
-    return (<div>past question comes here</div>)
+    return (<Layout>
+        <div className="bg-gray-100 pt-12 md:pt-20">
+            <Container>
+                <p className="text-xs sm:text-md lg:text-xl font-bold mb-4">
+                    {questiondata.exam.toUpperCase()} {subjectSchema[questiondata.subject.toUpperCase()]}
+                </p>
+                <PastQuestionQuestion data={questiondata} />
+            </Container>
+        </div>
+    </Layout>)
 }
 
 export async function getStaticPaths() {
