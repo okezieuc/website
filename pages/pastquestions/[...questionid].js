@@ -1,3 +1,4 @@
+import Head from "next/head"
 import Container from "@components/container"
 import Layout from "@components/layout"
 import PastQuestionNavigation from "@components/pastquestions/page/pastQuestionNavigation"
@@ -8,6 +9,9 @@ import { sanityPastQuestionIdQuery, sanityPastQuestionQuery, sanitySimilarPastQu
 
 export default function PastQuestionPage({ questiondata, otherdata, questionid }) {
     return (<Layout>
+        <Head>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous" />
+        </Head>
         <div className="bg-gray-100 pt-12 md:pt-20">
             <Container>
                 <p className="text-xs sm:text-md lg:text-xl font-bold mb-4">
