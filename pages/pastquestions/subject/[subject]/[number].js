@@ -1,11 +1,20 @@
 import { sanitySubjectPageQuery, sanitySubjectPageCountQuery } from "lib/sanityQueries";
 import { subjectSchema } from "lib/pastQuestionNamingSchema";
 import sanity from "lib/sanity";
+import Layout from "@components/layout";
+import PastQuestionPageHero from "@components/pastquestions/page/pastQuestionPageHero";
+import PastQuestionCard from "@components/pastquestions/list/pastQuestionCard";
+import Container from "@components/container";
 
 export default function PastQuestionSubjectPage({ subjectdata, count }) {
-  return (<div>
-    Data comes here
-  </div>)
+  return (<Layout>
+    <PastQuestionPageHero />
+    <Container>
+      {
+        subjectdata.map((question) => <PastQuestionCard questionid={question._id} questionData={question} key={question._id} />)
+      }
+    </Container>
+  </Layout>)
 }
 
 export async function getStaticPaths() {
