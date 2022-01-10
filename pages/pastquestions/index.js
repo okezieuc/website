@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import Container from "@components/container";
 import Layout from "@components/layout";
 import PastQuestionHomeHero from "@components/pastquestions/home/pastQuestionHomeHero";
@@ -9,6 +10,7 @@ import { subjectSchema } from "lib/pastQuestionNamingSchema";
 export default function PastQuestionHomePage() {
   return (
     <Layout>
+      
       <PastQuestionHomeSEO />
       <PastQuestionHomeHero />
       <Container>
