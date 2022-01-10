@@ -14,7 +14,7 @@ export default function PastQuestionHomePage() {
       <PastQuestionHomeSEO />
       <PastQuestionHomeHero />
       <Container>
-        <div className="grid sm:grid-cols-2 pb-20 border-b">
+        <div className="grid sm:grid-cols-2 pb-20 border-b mt-6">
           {Object.keys(subjectSchema).map((key) => (
             <PastQuestionHomeSubject
               key={key}
