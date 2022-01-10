@@ -1,8 +1,15 @@
+import Head from "next/head";
 import blockToText from "lib/blockToText";
 
 export default function PastQuestionPageSEO({ questiondata, questionid }) {
   return (
-    <>
+    <Head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+        integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
+        crossorigin="anonymous"
+      />
       <title>
         {`${blockToText(questiondata.question)} ${
           !!questiondata.prompt ? questiondata.prompt : ""
@@ -75,6 +82,6 @@ export default function PastQuestionPageSEO({ questiondata, questionid }) {
         name="twitter:image"
         content="https://res.cloudinary.com/okezieuc/image/upload/studymono/covers/past-questions-cover-image_z13zcz.png"
       />
-    </>
+    </Head>
   );
 }

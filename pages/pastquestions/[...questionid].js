@@ -19,18 +19,10 @@ export default function PastQuestionPage({
 }) {
   return (
     <Layout>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-          integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
-          crossorigin="anonymous"
-        />
-        <PastQuestionPageSEO
-          questiondata={questiondata}
-          questionid={questionid}
-        />
-      </Head>
+      <PastQuestionPageSEO
+        questiondata={questiondata}
+        questionid={questionid}
+      />
       <div className="bg-gray-100 pt-12 md:pt-20">
         <Container>
           <p className="text-xs sm:text-md lg:text-xl font-bold mb-4">

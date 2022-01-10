@@ -1,6 +1,8 @@
+import Head from "next/head";
+
 export default function PastQuestionHomeSEO() {
   return (
-    <>
+    <Head>
       <title>The StudyMono WAEC and JAMB Past Question Collection</title>
       <meta
         name="description"
@@ -32,6 +34,6 @@ export default function PastQuestionHomeSEO() {
         name="twitter:image"
         content="https://res.cloudinary.com/okezieuc/image/upload/studymono/covers/past-questions-cover-image_z13zcz.png"
       />
-    </>
+    </Head>
   );
 }

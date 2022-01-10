@@ -19,20 +19,12 @@ export default function PastQuestionSubjectPage({ subjectdata, count }) {
 
   return (
     <Layout>
-      <Head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-          integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
-          crossorigin="anonymous"
-        />
-        <PastQuestionListSEO
-          subjectName={subjectSchema[subject.toUpperCase()]}
-          q1={subjectdata[0]}
-          page={number}
-          subjectSlug={subject}
-        />
-      </Head>
+      <PastQuestionListSEO
+        subjectName={subjectSchema[subject.toUpperCase()]}
+        q1={subjectdata[0]}
+        page={number}
+        subjectSlug={subject}
+      />
       <PastQuestionPageHero
         subject={subjectSchema[subject.toUpperCase()]}
         page={number}

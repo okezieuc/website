@@ -9,9 +9,7 @@ import { subjectSchema } from "lib/pastQuestionNamingSchema";
 export default function PastQuestionHomePage() {
   return (
     <Layout>
-      <Head>
-        <PastQuestionHomeSEO />
-      </Head>
+      <PastQuestionHomeSEO />
       <PastQuestionHomeHero />
       <Container>
         <div className="grid sm:grid-cols-2 pb-20 border-b">

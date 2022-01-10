@@ -1,3 +1,4 @@
+import Head from "next/head";
 import blockToText from "lib/blockToText";
 
 export default function PastQuestionListSEO({
@@ -7,7 +8,13 @@ export default function PastQuestionListSEO({
   subjectSlug,
 }) {
   return (
-    <>
+    <Head>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
+        integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
+        crossorigin="anonymous"
+      />
       <title>
         {`Practice over 4 Years of ${subjectName} Questions from WAEC and JAMB` +
           (parseInt(page) != 1 ? ` - Page ${page}` : "")}
@@ -82,6 +89,6 @@ export default function PastQuestionListSEO({
         name="twitter:image"
         content={`https://res.cloudinary.com/okezieuc/image/upload/studymono/categories/${subjectSlug}.png`}
       />
-    </>
+    </Head>
   );
 }
