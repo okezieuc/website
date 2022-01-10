@@ -10,7 +10,7 @@ export default function Header() {
       <div class="bg-black w-full text-white py-2 text-sm">
         <Container>
           <Link href="/blog/past-questions-answers-and-explanations-published">
-            We're shuttting down public past question pages
+            Learn about our recent release of answers →
           </Link>
         </Container>
       </div>
@@ -24,8 +24,8 @@ export default function Header() {
               <Link href="/blog">Blog</Link>
             </div>
             <div class="flex-grow"></div>
-            <div class="bg-indigo-700 py-1 md:py-2 px-2 md:px-6 rounded-2xl	text-white hover:bg-indigo-600">
-              <a>Newsletter starting ending of September</a>
+            <div class="bg-indigo-700 py-1 md:py-2 px-2 md:px-6 rounded-md	text-white hover:bg-indigo-600 transition-colors">
+              <Link href="/pastquestions">Past Questions</Link>
             </div>
           </div>
         </Container>

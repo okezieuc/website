@@ -51,12 +51,12 @@ export default function Blog({ allPosts }) {
               <h1 class="font-heading text-2xl sm:text-4xl md:text-6xl mb-4 md:mb-12 font-bold">
                 Studymono <span class="text-indigo-700">Blog</span>
               </h1>
-              <Featured />
+              <Featured post={allPosts[0]} />
             </Container>
           </div>
           <Container>
             <div class="flex grid grid-cols-12 pb-10 gap-x-8 gap-y-16">
-              {allPosts.map((post) => (
+              {allPosts.slice(1).map((post) => (
                 <BlogPostItem post={post} key={post.slug} />
               ))}
             </div>
