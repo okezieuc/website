@@ -1,16 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import CoverImage from "../../public/image.jpg";
+import { dateInWords } from "lib/dateInWords";
 
-export default function Featured() {
+export default function Featured({ post }) {
   return (
     <div class="flex flex-col items-center md:flex-row">
-      <div class="w-full md:w-1/2">
-        <Link href="/blog/navigating-studymono">
-          <a class="block">
+      <div className="relative w-full h-64 md:h-96">
+        <Link href={`/blog/${post.slug}`}>
+          <a>
             <Image
-              src={CoverImage}
-              class="object-cover w-full h-full rounded-lg max-h-64 sm:max-h-96"
+              src={`/blogcovers${post.cover}`}
+              alt={`Cover image for the post "${post.title}" on The Studymono Blog`}
+              layout="fill"
+              objectFit="cover"
+              className="round-corners object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56"
             />
           </a>
         </Link>
@@ -29,16 +32,14 @@ export default function Featured() {
             <span>Featured</span>
           </div>
           <h1 class="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl">
-            <Link href="/blog/navigating-studymono">
-              A Newcomer's Guide to Navigating Studymono
-            </Link>
+            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
           </h1>
           <p class="pt-2 text-sm font-medium">
             by{" "}
             <span href="#_" class="mr-1 underline">
-              Okezie Chiedozie
+              {post.author}
             </span>{" "}
-            · <span class="mx-1">19th May 2021</span>
+            · <span class="mx-1">{dateInWords(post.date)}</span>
           </p>
         </div>
       </div>
