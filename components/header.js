@@ -10,7 +10,7 @@ export default function Header() {
       <div class="bg-black w-full text-white py-2 text-sm">
         <Container>
           <Link href="/blog/past-questions-answers-and-explanations-published">
-            We're shuttting down public past question pages
+            Learn about our recent release of answers →
           </Link>
         </Container>
       </div>
