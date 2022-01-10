@@ -1,11 +1,20 @@
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
 import { dateInWords } from "../lib/dateInWords";
 import Container from "@components/container";
 
 function BlogPost({ post }) {
   return (
     <div class="w-full">
-      <div class="bg-gray-200 h-52 rounded-2xl relative"></div>
+      <div class="bg-gray-200 h-52 rounded-2xl relative">
+        <Image
+          src={`/blogcovers${post.cover}`}
+          alt={`Cover image for the post "${post.title}" on The Studymono Blog`}
+          layout="fill"
+          objectFit="cover"
+          className="round-corners"
+        />
+      </div>
       <div class="ml-4 mt-4 text-md sm:text-xl md:text-2xl">
         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
       </div>
