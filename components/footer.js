@@ -7,7 +7,7 @@ export default function Footer() {
       <Container>
         <div class="flex flex-col items-center py-8 mx-auto max-w-7xl sm:flex-row">
           <Link href="/">
-            <a class="text-xl font-black leading-none text-gray-900 select-none logo">
+            <a class="text-xl font-black leading-none text-gray-900 select-none logo hover:text-indigo-700 transition-colors">
               studymono<span class="text-indigo-700">.</span>
             </a>
           </Link>

@@ -1,39 +1,55 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-const WideLink = ({ text, slug }) => <Link href={slug}>
+const WideLink = ({ text, slug }) => (
+  <Link href={slug}>
     <a>
-        <div className="border p-1 md:p-2 text-center rounded-md border-gray-200 w-32">
-            {text}
-        </div>
+      <div className="border p-1 md:p-2 text-center rounded-md border-gray-200 hover:border-gray-300 w-32 hover:bg-gray-50 transition-colors">
+        {text}
+      </div>
     </a>
-</Link>
+  </Link>
+);
 
-const SlimLink = ({ text, slug }) => <Link href={slug}>
+const SlimLink = ({ text, slug }) => (
+  <Link href={slug}>
     <a>
-        <div className="border p-1 md:p-2 text-center rounded-md border-gray-200 w-24">
-            {text}
-        </div>
+      <div className="border p-1 md:p-2 text-center rounded-md border-gray-200 hover:border-gray-300 w-24 hover:bg-gray-50 transition-colors">
+        {text}
+      </div>
     </a>
-</Link>
+  </Link>
+);
 
 export default function ListPagination({ prefix, current, total, ...props }) {
-    return (<div className="flex flex-row gap-2 md:gap-4 max-w-min text-sm md:text-md mt-12 mb-24 mx-auto">
-        {
-            current != 1 ? <>
-                <WideLink text="First" slug={`${prefix}1`} />
-                <SlimLink valid={(current - 1) > 0} slug={`${prefix}${current - 1}`} text="Previous" />
-            </>
-                : ""
-        }
-        {
-            current < total ? <SlimLink valid={current < total} slug={`${prefix}${current + 1}`} text="Next" /> : ""
-        }
-
-    </div>)
+  return (
+    <div className="flex flex-row gap-2 md:gap-4 max-w-min text-sm md:text-md mt-12 mb-24 mx-auto">
+      {current != 1 ? (
+        <>
+          <WideLink text="First" slug={`${prefix}1`} />
+          <SlimLink
+            valid={current - 1 > 0}
+            slug={`${prefix}${current - 1}`}
+            text="Previous"
+          />
+        </>
+      ) : (
+        ""
+      )}
+      {current < total ? (
+        <SlimLink
+          valid={current < total}
+          slug={`${prefix}${current + 1}`}
+          text="Next"
+        />
+      ) : (
+        ""
+      )}
+    </div>
+  );
 }
 
 ListPagination.defaultProps = {
-    prefix: "/pastquestions/subject/phy/",
-    current: 2,
-    total: 4,
-}
+  prefix: "/pastquestions/subject/phy/",
+  current: 2,
+  total: 4,
+};

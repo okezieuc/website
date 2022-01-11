@@ -4,7 +4,7 @@ import { dateInWords } from "lib/dateInWords";
 
 export default function Featured({ post }) {
   return (
-    <div class="flex flex-col items-center md:flex-row">
+    <div class="group flex flex-col items-center md:flex-row">
       <div className="relative w-full h-64 md:h-96">
         <Link href={`/blog/${post.slug}`}>
           <a>
@@ -31,7 +31,7 @@ export default function Featured({ post }) {
             </svg>
             <span>Featured</span>
           </div>
-          <h1 class="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl">
+          <h1 class="text-4xl font-bold leading-none lg:text-5xl xl:text-6xl group-hover:text-indigo-700 transition-colors">
             <Link href={`/blog/${post.slug}`}>{post.title}</Link>
           </h1>
           <p class="pt-2 text-sm font-medium">
