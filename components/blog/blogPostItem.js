@@ -4,7 +4,7 @@ import { dateInWords } from "../../lib/dateInWords";
 
 export default function BlogPostItem({ post }) {
   return (
-    <div class="flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4 blog-item-fix">
+    <div class="group flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4 blog-item-fix">
       <div className="relative w-full h-48">
         <Link href={`/blog/${post.slug}`}>
           <a>
@@ -18,7 +18,7 @@ export default function BlogPostItem({ post }) {
           </a>
         </Link>
       </div>
-      <h2 class="text-lg font-bold sm:text-xl md:text-2xl">
+      <h2 class="text-lg font-bold sm:text-xl md:text-2xl group-hover:text-indigo-700 transition-colors">
         <Link href={`/blog/${post.slug}`}>
           <a>{post.title}</a>
         </Link>
