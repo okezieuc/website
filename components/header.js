@@ -6,7 +6,7 @@ export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   return (
-    <div class="w-full">
+    <div class="w-full relative">
       <div>
         <div class="bg-black w-full text-white py-3 sm:py-4 text-sm hover:text-gray-200 transition-colors">
           <Container>
@@ -57,32 +57,34 @@ export default function Header() {
           </Container>
         </div>
       </div>
-      <div className="text-md bg-gray-50 m-2 rounded-md px-4 py-4 border border-gray-200 shadow-sm flex flex-col gap-2">
-        <MobileMenuLink title="Home" href="/" />
-        <MobileMenuLink title="Blog" href="/blog" />
-        <MobileMenuLink title="Terms of use" href="/terms-and-conditions" />
-        <div className="flex flex-col gap-2 mt-4">
-          <MobileMenuButton
-            title="Go to Past Questions"
-            href="/pastquestions"
-            invert={false}
-            Icon={() => (
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                />
-              </svg>
-            )}
-          />
+      <div className="absolute w-full z-50">
+        <div className="text-md bg-gray-50 m-2 rounded-md px-4 py-4 border border-gray-200 shadow-sm flex flex-col gap-2">
+          <MobileMenuLink title="Home" href="/" />
+          <MobileMenuLink title="Blog" href="/blog" />
+          <MobileMenuLink title="Terms of use" href="/terms-and-conditions" />
+          <div className="flex flex-col gap-2 mt-4">
+            <MobileMenuButton
+              title="Go to Past Questions"
+              href="/pastquestions"
+              invert={false}
+              Icon={() => (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
+              )}
+            />
+          </div>
         </div>
       </div>
     </div>
