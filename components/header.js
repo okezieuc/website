@@ -57,7 +57,9 @@ export default function Header() {
           </Container>
         </div>
       </div>
-      <div className="absolute w-full z-50">
+      <div
+        className={`${menuIsOpen ? "block" : "hidden"} absolute w-full z-50`}
+      >
         <div className="text-md bg-gray-50 m-2 rounded-md px-4 py-4 border border-gray-200 shadow-sm flex flex-col gap-2">
           <MobileMenuLink title="Home" href="/" />
           <MobileMenuLink title="Blog" href="/blog" />
