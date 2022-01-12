@@ -34,23 +34,10 @@ export default function Header() {
                   <Link href="/pastquestions">Past Questions</Link>
                 </div>
                 <button
-                  className="ml-2"
+                  className="ml-2 w-8"
                   onClick={() => setMenuIsOpen(!menuIsOpen)}
                 >
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
+                  { menuIsOpen ? <CloseMenuIcon/> : <OpenMenuIcon /> }
                 </button>
               </div>
             </div>
@@ -92,6 +79,45 @@ export default function Header() {
     </div>
   );
 }
+
+function OpenMenuIcon() {
+  return (
+    <svg
+      className="w-8 h-8"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1}
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+  );
+}
+
+function CloseMenuIcon() {
+  return (
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
 
 function MobileMenuLink({ title, href }) {
   return <Link href={href}>{title}</Link>;
