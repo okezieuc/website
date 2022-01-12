@@ -34,7 +34,7 @@ export default function Header() {
                   <Link href="/pastquestions">Past Questions</Link>
                 </div>
                 <button
-                  className="ml-2 w-8"
+                  className="ml-2 w-8 sm:hidden"
                   onClick={() => setMenuIsOpen(!menuIsOpen)}
                 >
                   { menuIsOpen ? <CloseMenuIcon/> : <OpenMenuIcon /> }
