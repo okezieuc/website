@@ -28,8 +28,26 @@ export default function Header() {
               <Link href="/blog">Blog</Link>
             </div>
             <div class="flex-grow"></div>
-            <div class="bg-indigo-700 py-2 md:py-2 px-4 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors">
-              <Link href="/pastquestions">Past Questions</Link>
+            <div className="flex">
+              <div class="bg-indigo-700 py-2 md:py-2 px-4 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors">
+                <Link href="/pastquestions">Past Questions</Link>
+              </div>
+              <button className="ml-2">
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </Container>
