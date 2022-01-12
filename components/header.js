@@ -17,7 +17,7 @@ export default function Header() {
       <div class="text-sm md:text-lg bg-white border-b border-gray-300 py-2 md:py-4">
         <Container>
           <div class="flex flex-row items-center gap-4 md:gap-12">
-            <div class="text-lg md:text-2xl font-bold mr-1 md:mr-4 hover:text-indigo-700 transition-colors">
+            <div class="text-xl md:text-2xl font-bold mr-1 md:mr-4 hover:text-indigo-700 transition-colors">
               <Link href="/">
                 <a>
                   studymono<span className="text-indigo-700">.</span>
@@ -28,7 +28,7 @@ export default function Header() {
               <Link href="/blog">Blog</Link>
             </div>
             <div class="flex-grow"></div>
-            <div class="bg-indigo-700 py-1 md:py-2 px-2 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors">
+            <div class="bg-indigo-700 py-2 md:py-2 px-4 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors">
               <Link href="/pastquestions">Past Questions</Link>
             </div>
           </div>
