@@ -7,7 +7,7 @@ export default function Header() {
 
   return (
     <div class="w-full">
-      <div class="bg-black w-full text-white py-2 text-sm hover:text-gray-200 transition-colors">
+      <div class="bg-black w-full text-white py-3 sm:py-4 text-sm hover:text-gray-200 transition-colors">
         <Container>
           <Link href="/blog/past-questions-answers-and-explanations-published">
             Learn about our recent release of answers →
