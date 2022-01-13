@@ -28,6 +28,9 @@ export default function Header() {
               <div class="hidden sm:block hover:text-indigo-700 transition-colors">
                 <Link href="/blog">Blog</Link>
               </div>
+              <div class="hidden sm:block hover:text-indigo-700 transition-colors">
+                <Link href="/learn">Courses</Link>
+              </div>
               <div class="flex-grow"></div>
               <div className="flex">
                 <div class="bg-indigo-700 py-2 md:py-2 px-4 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors">
@@ -37,7 +40,7 @@ export default function Header() {
                   className="ml-2 w-8 sm:hidden"
                   onClick={() => setMenuIsOpen(!menuIsOpen)}
                 >
-                  { menuIsOpen ? <CloseMenuIcon/> : <OpenMenuIcon /> }
+                  {menuIsOpen ? <CloseMenuIcon /> : <OpenMenuIcon />}
                 </button>
               </div>
             </div>
@@ -50,6 +53,7 @@ export default function Header() {
         <div className="text-md bg-gray-50 m-2 rounded-md px-4 py-4 border border-gray-200 shadow-sm flex flex-col gap-2">
           <MobileMenuLink title="Home" href="/" />
           <MobileMenuLink title="Blog" href="/blog" />
+          <MobileMenuLink title="Courses" href="/learn" />
           <MobileMenuLink title="Terms of use" href="/terms-and-conditions" />
           <div className="flex flex-col gap-2 mt-4">
             <MobileMenuButton
@@ -117,7 +121,6 @@ function CloseMenuIcon() {
     </svg>
   );
 }
-
 
 function MobileMenuLink({ title, href }) {
   return <Link href={href}>{title}</Link>;
