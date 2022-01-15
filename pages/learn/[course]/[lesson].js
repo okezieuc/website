@@ -30,15 +30,39 @@ export async function getServerSideProps({ req, params }) {
     },
   });
 
+  // get the previous and next lesson
+  // start by locating where the current lesson is located in the array
+  const [lessonLocationIndex, total] = [
+    lesson.course[0].lessonSlugs.findIndex(
+      (item) => item.slug == params.lesson
+    ),
+    lesson.course[0].lessonSlugs.length,
+  ];
+  // find out the indices of the previous and next lessons based on lessonLocationIndex
+  const [previous, next] = [
+    (lessonLocationIndex - 1 + total) % total,
+    (lessonLocationIndex + 1) % total,
+  ];
+  // return null if a lesson if a lesson is the first or last lesson
+  const lessonSlugs = [
+    lessonLocationIndex != 0
+      ? lesson.course[0].lessonSlugs[previous].slug
+      : null,
+    lessonLocationIndex != total - 1
+      ? lesson.course[0].lessonSlugs[next].slug
+      : null,
+  ];
+
   return {
     props: {
       lesson,
       source: mdxSource,
+      lessonSlugs,
     },
   };
 }
 
-export default function Lesson({ lesson, source }) {
+export default function Lesson({ lesson, source, lessonSlugs }) {
   return (
     <Layout>
       <div className="bg-gray-100 border-b border-gray-300">
