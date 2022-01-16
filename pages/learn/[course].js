@@ -12,9 +12,22 @@ export default function CoursePage({ course }) {
 
   useEffect(() => {
     setSession(supabase.auth.session());
-    supabase.auth.onAuthStateChange((_event, session) => {
+    const authListener = supabase.auth.onAuthStateChange((event, session) => {
       setSession(session);
+      
+      if (event === "SIGNED_IN") {
+        fetch("/api/auth", {
+          method: "POST",
+          headers: new Headers({ "Content-Type": "application/json" }),
+          credentials: "same-origin",
+          body: JSON.stringify({ event, session }),
+        }).then((res) => res.json());
+      }
     });
+
+    return () => {
+      authListener.data.unsubscribe();
+    };
   }, []);
 
   return (

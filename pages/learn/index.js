@@ -1,9 +1,28 @@
+import { useEffect } from "react";
 import Layout from "@components/layout";
 import ExploreItem from "@components/courses/home/ExploreItem";
 import { getAllCourses } from "lib/graphcms";
 import Container from "@components/container";
+import { supabase } from "lib/supabaseClient";
 
 export default function CoursesPage({ courses }) {
+  useEffect(() => {
+    const authListener = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN") {
+        fetch("/api/auth", {
+          method: "POST",
+          headers: new Headers({ "Content-Type": "application/json" }),
+          credentials: "same-origin",
+          body: JSON.stringify({ event, session }),
+        }).then((res) => res.json());
+      }
+    });
+
+    return () => {
+      authListener.data.unsubscribe();
+    };
+  }, []);
+
   return (
     <Layout>
       <div className="bg-gray-100 pt-6 sm:pt-8 md:pt-12 pb-16">

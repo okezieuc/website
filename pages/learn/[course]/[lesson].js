@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Layout from "@components/layout";
 import { getLessonData } from "lib/graphcms";
 import { supabase } from "lib/supabaseClient";
@@ -64,6 +65,23 @@ export async function getServerSideProps({ req, params }) {
 }
 
 export default function Lesson({ lesson, source, lessonSlugs }) {
+  useEffect(() => {
+    const authListener = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN") {
+        fetch("/api/auth", {
+          method: "POST",
+          headers: new Headers({ "Content-Type": "application/json" }),
+          credentials: "same-origin",
+          body: JSON.stringify({ event, session }),
+        }).then((res) => res.json());
+      }
+    });
+
+    return () => {
+      authListener.data.unsubscribe();
+    };
+  }, []);
+
   return (
     <Layout>
       <div className="bg-gray-100 border-b border-gray-300 py-24">
