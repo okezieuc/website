@@ -7,6 +7,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import Container from "@components/container";
+import CourseNavigation from "@components/courses/page/courseNavigation";
 
 export async function getServerSideProps({ req, params }) {
   const { user } = await supabase.auth.api.getUserByCookie(req);
@@ -65,17 +66,33 @@ export async function getServerSideProps({ req, params }) {
 export default function Lesson({ lesson, source, lessonSlugs }) {
   return (
     <Layout>
-      <div className="bg-gray-100 border-b border-gray-300">
+      <div className="bg-gray-100 border-b border-gray-300 py-24">
         <Container>
-          <div className="max-w-2xl py-24">
+          <div className="max-w-2xl">
             <h1 className="text-5xl font-bold font-heading">{lesson.title}</h1>
             <h2 className="text-2xl">{lesson.description}</h2>
           </div>
         </Container>
       </div>
+      <div className="border-b border-gray-300">
+        <Container>
+          <CourseNavigation
+            courseId={lesson.course[0].id}
+            previousLessonSlug={lessonSlugs[0]}
+            nextLessonSlug={lessonSlugs[1]}
+          />
+        </Container>
+      </div>
       <Container>
         <div className="prose sm:prose-lg lg:prose-lg xl:prose-2xl mt-12 mx-auto">
           <MDXRemote {...source} />
+        </div>
+        <div className="mt-8 sm:mt-12">
+          <CourseNavigation
+            courseId={lesson.course[0].id}
+            previousLessonSlug={lessonSlugs[0]}
+            nextLessonSlug={lessonSlugs[1]}
+          />
         </div>
       </Container>
     </Layout>
