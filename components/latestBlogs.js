@@ -22,9 +22,6 @@ function BlogPost({ post }) {
       <div class="ml-4 mt-4 text-md sm:text-xl md:text-2xl group-hover:underline">
         <Link href={`/blog/${post.slug}`}>{post.title}</Link>
       </div>
-      <div class="ml-4 mt-3 font-medium md:font-bold text-gray-800 text-xs md:text-md">
-        {dateInWords(post.date)}
-      </div>
     </div>
   );
 }
