@@ -1,9 +1,27 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "@components/container";
+import { handleLogin, supabase } from "lib/supabaseClient";
 
 export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+
+  useEffect(() => {
+    const authListener = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_IN") {
+        fetch("/api/auth", {
+          method: "POST",
+          headers: new Headers({ "Content-Type": "application/json" }),
+          credentials: "same-origin",
+          body: JSON.stringify({ event, session }),
+        }).then((res) => res.json());
+      }
+    });
+
+    return () => {
+      authListener.data.unsubscribe();
+    };
+  }, []);
 
   return (
     <div class="w-full relative">
@@ -33,9 +51,11 @@ export default function Header() {
               </div>
               <div class="flex-grow"></div>
               <div className="flex">
-                <div class="bg-indigo-700 py-2 md:py-2 px-4 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors">
-                  <Link href="/pastquestions">Past Questions</Link>
-                </div>
+                <button class="bg-indigo-700 py-2 md:py-2 px-4 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors"
+                onClick={() => handleLogin()}
+                >
+                  Log in
+                </button>
                 <button
                   className="ml-2 w-8 sm:hidden"
                   onClick={() => setMenuIsOpen(!menuIsOpen)}
