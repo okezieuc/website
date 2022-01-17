@@ -4,6 +4,8 @@
 
 tasks:
   - init: yarn install
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: $GITPOD_WORKSPACE_URL
     command: yarn dev
 vscode:
   extensions:
