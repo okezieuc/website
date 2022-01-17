@@ -3,7 +3,8 @@
 # and commit this file to your remote git repository to share the goodness with others.
 
 tasks:
-  - init: yarn install
+  - before: echo NEXT_PUBLIC_SUPABASE_URL=$GITPOD_WORKSPACE_URL > .env.local
+    init: yarn install
     command: yarn dev
 vscode:
   extensions:
