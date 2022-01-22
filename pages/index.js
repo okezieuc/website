@@ -50,7 +50,6 @@ export default function IndexPage({ posts }) {
       <Hero />
       <Vision />
       <Stats />
-      <Quote />
       <LatestBlogs posts={posts} />
       <CallToAction />
     </Layout>

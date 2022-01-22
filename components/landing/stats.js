@@ -17,9 +17,10 @@ export default function Stats() {
             />
           </div>
           <div class="text-md md:text-2xl sm:mt-4 md:mt-0">
-            Featuring a catalog of over 500 WAEC and JAMB questions in
-            Mathematics, Physics, Chemistry and other subjects, Studymono is
-            ready to provide you with your academic needs.
+            Featuring a catalog of over 500 WAEC and JAMB past questions and an
+            impressive collection of bite-sized but in-depth tutorials on topics
+            in the secondary school curriculum, Studymono provides for every
+            student's academics needs.
           </div>
         </div>
         <div class="w-76 h-76 hidden md:block">
