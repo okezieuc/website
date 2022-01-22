@@ -14,7 +14,12 @@ const sanity = sanityClient({
 
 const siteUrl = "https://www.studymono.com";
 
-const getLastMod = (date) => date.slice(0, 10);
+const getLastMod = (date) => {
+  if (date.slice(0, 4) === "2021") {
+    return "2022-01-22";
+  }
+  return date.slice(0, 10);
+};
 
 let locations = ["", "/blog", "/terms-and-conditions", "/pastquestions"];
 
