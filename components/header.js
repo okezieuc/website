@@ -51,8 +51,9 @@ export default function Header() {
               </div>
               <div class="flex-grow"></div>
               <div className="flex">
-                <button class="bg-indigo-700 py-2 md:py-2 px-4 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors"
-                onClick={() => handleLogin()}
+                <button
+                  class="bg-indigo-700 py-2 md:py-2 px-4 md:px-6 rounded-md text-white hover:bg-indigo-800 transition-colors"
+                  onClick={() => handleLogin()}
                 >
                   Log in
                 </button>
@@ -76,9 +77,30 @@ export default function Header() {
           <MobileMenuLink title="Courses" href="/learn" />
           <MobileMenuLink title="Terms of use" href="/terms-and-conditions" />
           <div className="flex flex-col gap-2 mt-4">
-            <MobileMenuButton
+            <MobileMenuCTALink
               title="Go to Past Questions"
               href="/pastquestions"
+              invert={true}
+              Icon={() => (
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                  />
+                </svg>
+              )}
+            />
+            <MobileMenuCTAButton
+              title="Log into Studymono Courses"
+              onClick={() => handleLogin()}
               invert={false}
               Icon={() => (
                 <svg
@@ -146,7 +168,7 @@ function MobileMenuLink({ title, href }) {
   return <Link href={href}>{title}</Link>;
 }
 
-function MobileMenuButton({ title, href, Icon, invert = false }) {
+function MobileMenuCTALink({ title, href, Icon, invert = false }) {
   return (
     <Link href={href}>
       <a
@@ -157,5 +179,18 @@ function MobileMenuButton({ title, href, Icon, invert = false }) {
         <Icon /> <span className="ml-2">{title}</span>
       </a>
     </Link>
+  );
+}
+
+function MobileMenuCTAButton({ title, href, Icon, invert = false, onClick }) {
+  return (
+    <button
+      className={`${
+        invert ? "bg-black" : "bg-indigo-700"
+      } text-white p-2 rounded-md flex items-center`}
+      onClick={onClick}
+    >
+      <Icon /> <span className="ml-2">{title}</span>
+    </button>
   );
 }
