@@ -13,10 +13,18 @@ function HeroNotificationBadge() {
   );
 }
 
-function CallToAction() {
+function CallToAction({ title, href }) {
   return (
-    <div class="w-max bg-indigo-700 px-4 md:px-8 py-2 md:py-4 mx-auto text-white text-sm md:text-xl border border-indigo-700 rounded-md mt-8 hover:bg-indigo-800 transition-colors">
-      <Link href="/pastquestions">Go To Past Questions</Link>
+    <div class="bg-indigo-700 px-4 md:px-8 py-2 md:py-4 text-white text-sm md:text-xl border border-indigo-700 rounded-md hover:bg-indigo-800 transition-colors">
+      <Link href={href}>{title}</Link>
+    </div>
+  );
+}
+
+function InvertedCallToAction({ title, href }) {
+  return (
+    <div class="bg-gray-100 px-4 md:px-8 py-2 md:py-4 text-indigo-700 text-sm md:text-xl border border-indigo-700 rounded-md hover:bg-gray-200 transition-colors mt-2 sm:mt-0">
+      <Link href={href}>{title}</Link>
     </div>
   );
 }
@@ -34,7 +42,16 @@ export default function Hero() {
           easy-to-understand lessons on secondary school topics and a vast array
           of past questions.
         </h2>
-        <CallToAction />
+        <div className="mx-auto w-max mt-8">
+          <div className="sm:flex flex-col sm:flex-row items-center gap-4">
+            <CallToAction title="Explore Lessons" href="/learn" />
+            <span className="hidden sm:block text-indigo-700">or</span>
+            <InvertedCallToAction
+              title="Go To Past Questions"
+              href="/pastquestions"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
