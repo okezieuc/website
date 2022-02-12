@@ -46,8 +46,11 @@ export default function Header() {
               <div class="hidden sm:block hover:text-indigo-700 transition-colors">
                 <Link href="/blog">Blog</Link>
               </div>
-              <div class="hidden sm:block hover:text-indigo-700 transition-colors">
+              <div class="hidden sm:block hover:text-indigo-700 transition-colors flex items-center">
                 <Link href="/learn">Courses</Link>
+                <span className="text-xs bg-white text-indigo-800 px-2 rounded-full ml-4 border border-indigo-800">
+                  alpha
+                </span>
               </div>
               <div class="flex-grow"></div>
               <div className="flex">
@@ -191,6 +194,10 @@ function MobileMenuCTAButton({ title, href, Icon, invert = false, onClick }) {
       onClick={onClick}
     >
       <Icon /> <span className="ml-2">{title}</span>
+      <span className="flex-1"></span>
+      <span className="text-xs bg-white text-indigo-800 px-2 rounded-full ml-4 border border-indigo-700">
+        alpha
+      </span>
     </button>
   );
 }

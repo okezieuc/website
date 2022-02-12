@@ -15,8 +15,15 @@ function HeroNotificationBadge() {
 
 function CallToAction({ title, href }) {
   return (
-    <div class="bg-indigo-700 px-4 md:px-8 py-2 md:py-4 text-white text-sm md:text-xl border border-indigo-700 rounded-md hover:bg-indigo-800 transition-colors">
-      <Link href={href}>{title}</Link>
+    <div class="bg-indigo-700 px-4 md:px-8 py-2 md:py-4 text-white text-sm md:text-xl border border-indigo-700 rounded-md hover:bg-indigo-800 transition-colors items-center">
+      <Link href={href}>
+        <a>
+          {title}
+          <span className="text-sm bg-white text-indigo-800 px-2 rounded-full ml-4">
+            alpha
+          </span>
+        </a>
+      </Link>
     </div>
   );
 }
