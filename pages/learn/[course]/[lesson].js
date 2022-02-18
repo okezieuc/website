@@ -24,7 +24,7 @@ export async function getServerSideProps({ req, params }) {
     return { props: {}, redirect: { destination: "/learn", permanent: false } };
   }
 
-  const source = lesson.content.markdown;
+  const source = lesson.contentString;
   const mdxSource = await serialize(source, {
     mdxOptions: {
       remarkPlugins: [remarkMath],
