@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Head from "next/head"
 import Layout from "@components/layout";
 import ExploreItem from "@components/courses/home/ExploreItem";
 import { getAllCourses } from "lib/graphcms";
@@ -25,6 +26,38 @@ export default function CoursesPage({ courses }) {
 
   return (
     <Layout>
+      <Head>
+        <title>Studymono Courses: A New Way for Secondary School Students to Learn</title>
+        <meta
+          name="description"
+          content="Studymono is the easiest way to prepare for your English, Maths and Science exams. Studymono courses are written in simple English, and are accompanied by examples that are structured like actual exam questions."
+        />
+        <meta
+          property="og:title"
+          content="Studymono Courses: A New Way for Secondary School Students to Learn"
+        />
+        <meta
+          property="og:description"
+          content="Studymono is the easiest way to prepare for your English, Maths and Science exams. Studymono courses are written in simple English, and are accompanied by examples that are structured like actual exam questions."
+        />
+        <meta
+          property="og:image"
+          content="https://www.studymono.com/cover.png"
+        />
+        <link rel="canonical" href="https://www.studymono.com" />
+        <meta
+          name="twitter:title"
+          content="Studymono Courses: A New Way for Secondary School Students to Learn"
+        />
+        <meta
+          name="twitter:description"
+          content="Studymono is the easiest way to prepare for your English, Maths and Science exams. Studymono courses are written in simple English, and are accompanied by examples that are structured like actual exam questions."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.studymono.com/cover.png"
+        />
+      </Head>
       <div className="bg-gray-100 pt-6 sm:pt-8 md:pt-12 pb-16">
         <Container>
           <div className="max-w-xl">
