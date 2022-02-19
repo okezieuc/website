@@ -42,7 +42,7 @@ export default function CoursesPage({ courses }) {
         />
         <meta
           property="og:image"
-          content="https://www.studymono.com/cover.png"
+          content="https://www.studymono.com/studymono-courses-cover.jpg"
         />
         <link rel="canonical" href="https://www.studymono.com" />
         <meta
@@ -55,7 +55,7 @@ export default function CoursesPage({ courses }) {
         />
         <meta
           name="twitter:image"
-          content="https://www.studymono.com/cover.png"
+          content="https://www.studymono.com/studymono-courses-cover.jpg"
         />
       </Head>
       <div className="bg-gray-100 pt-6 sm:pt-8 md:pt-12 pb-16">
