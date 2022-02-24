@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Head from "next/head"
+import Head from "next/head";
 import Layout from "@components/layout";
 import ExploreItem from "@components/courses/home/ExploreItem";
 import { getAllCourses } from "lib/graphcms";
@@ -27,7 +27,9 @@ export default function CoursesPage({ courses }) {
   return (
     <Layout>
       <Head>
-        <title>Studymono Courses: A New Way for Secondary School Students to Learn</title>
+        <title>
+          Studymono Courses: A New Way for Secondary School Students to Learn
+        </title>
         <meta
           name="description"
           content="Studymono is the easiest way to prepare for your English, Maths and Science exams. Studymono courses are written in simple English, and are accompanied by examples that are structured like actual exam questions."
@@ -65,10 +67,11 @@ export default function CoursesPage({ courses }) {
               Studymono Courses
             </h1>
             <div className="mt-4 text-lg">
-              This is an opportunity to easily study difficult concepts. <br />
-              <br />
-              These quality materials will guide you to understand concepts from
-              the foundation to the apex of the topic.
+              Subjects are divided into themes which contain lessons on closely
+              related themes. Select a theme below to learn more about that
+              topic.
+              <br /><br />
+              We publish a new theme every Monday.
             </div>
           </div>
           <div className="mt-24">
