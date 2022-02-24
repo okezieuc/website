@@ -6,6 +6,7 @@ import LessonListItem from "@components/courses/page/lessonListItem";
 import { getAllCourseSlugs, getCourseBySlug } from "lib/graphcms";
 import { supabase } from "../../lib/supabaseClient";
 import Container from "@components/container";
+import CoursePageSEO from "@components/courses/page/coursePageSEO";
 
 export default function CoursePage({ course }) {
   const [session, setSession] = useState(null);
@@ -14,7 +15,7 @@ export default function CoursePage({ course }) {
     setSession(supabase.auth.session());
     const authListener = supabase.auth.onAuthStateChange((event, session) => {
       setSession(session);
-      
+
       if (event === "SIGNED_IN") {
         fetch("/api/auth", {
           method: "POST",
@@ -33,6 +34,11 @@ export default function CoursePage({ course }) {
   return (
     <Layout>
       <div className="bg-gray-100 border-b border-gray-300 pt-6 sm:pt-8 md:pt-12">
+        <CoursePageSEO
+          title={course.title}
+          longDescription={course.longDescription}
+          slug={course.slug}
+        />
         <Container>
           <div className="max-w-xl">
             <h1 className="text-5xl font-bold font-heading">{course.title}</h1>
