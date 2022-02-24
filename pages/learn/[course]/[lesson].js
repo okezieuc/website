@@ -9,6 +9,7 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 import Container from "@components/container";
 import CourseNavigation from "@components/courses/page/courseNavigation";
+import LessonPageSEO from "@components/courses/page/lessonPageSEO";
 
 export async function getServerSideProps({ req, params }) {
   const { user } = await supabase.auth.api.getUserByCookie(req);
@@ -84,6 +85,12 @@ export default function Lesson({ lesson, source, lessonSlugs }) {
 
   return (
     <Layout>
+      <LessonPageSEO
+        title={lesson.title}
+        description={lesson.description}
+        courseId={lesson.course[0].id}
+        lessonId={lesson.slug}
+      />
       <div className="bg-gray-100 border-b border-gray-300 py-24">
         <Container>
           <div className="max-w-2xl">
