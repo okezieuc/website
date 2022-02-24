@@ -28,8 +28,8 @@ export default function Header() {
       <div>
         <div class="bg-black w-full text-white py-3 sm:py-4 text-sm hover:text-gray-200 transition-colors">
           <Container>
-            <Link href="/blog/past-questions-answers-and-explanations-published">
-              Learn about our recent release of answers →
+            <Link href="/blog/introducing-lessons-on-studymono-courses">
+              Learn about Courses, the better way to learn →
             </Link>
           </Container>
         </div>
@@ -48,7 +48,7 @@ export default function Header() {
               </div>
               <div class="hidden sm:block hover:text-indigo-700 transition-colors flex items-center">
                 <Link href="/learn">Courses</Link>
-                <span className="text-xs bg-white text-indigo-800 px-2 rounded-full ml-4 border border-indigo-800">
+                <span className="text-xs bg-white bg-indigo-800 text-white px-2 rounded-full ml-4 border border-indigo-800">
                   alpha
                 </span>
               </div>
@@ -194,10 +194,6 @@ function MobileMenuCTAButton({ title, href, Icon, invert = false, onClick }) {
       onClick={onClick}
     >
       <Icon /> <span className="ml-2">{title}</span>
-      <span className="flex-1"></span>
-      <span className="text-xs bg-white text-indigo-800 px-2 rounded-full ml-4 border border-indigo-700">
-        alpha
-      </span>
     </button>
   );
 }

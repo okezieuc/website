@@ -2,11 +2,11 @@ import Link from "next/link";
 
 function HeroNotificationBadge() {
   return (
-    <div class="border rounded-2xl w-max mx-auto px-2 py-1 border-indigo-700 bg-white text-indigo-700 text-sm sm:text-md hover:bg-gray-50 hover:border-indigo-800 transition-colors">
-      <Link href="blog/past-questions-answers-and-explanations-published">
+    <div class="hidden border rounded-2xl w-max mx-auto px-2 py-1 border-indigo-700 bg-white text-indigo-700 text-sm sm:text-md hover:bg-gray-50 hover:border-indigo-800 transition-colors">
+      <Link href="blog/introducing-lessons-on-studymono-courses">
         <a>
           <span className="blink mr-1">●</span>
-          We just launched answers
+          Learn about the new way to learn
         </a>
       </Link>
     </div>
@@ -19,9 +19,6 @@ function CallToAction({ title, href }) {
       <Link href={href}>
         <a>
           {title}
-          <span className="text-sm bg-white text-indigo-800 px-2 rounded-full ml-4">
-            alpha
-          </span>
         </a>
       </Link>
     </div>
