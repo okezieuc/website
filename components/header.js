@@ -29,7 +29,7 @@ export default function Header() {
         <div class="bg-black w-full text-white py-3 sm:py-4 text-sm hover:text-gray-200 transition-colors">
           <Container>
             <Link href="/blog/introducing-lessons-on-studymono-courses">
-              Learn about Courses, the better way to learn →
+              Introducing Courses, the better way to learn →
             </Link>
           </Container>
         </div>

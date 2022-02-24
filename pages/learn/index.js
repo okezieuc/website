@@ -63,6 +63,9 @@ export default function CoursesPage({ courses }) {
       <div className="bg-gray-100 pt-6 sm:pt-8 md:pt-12 pb-16">
         <Container>
           <div className="max-w-xl">
+            <div className="text-sm bg-white bg-indigo-800 text-white px-3 rounded-full border border-indigo-800 mb-4 w-max">
+              ALPHA
+            </div>
             <h1 className="text-5xl font-bold font-heading">
               Studymono Courses
             </h1>
@@ -70,7 +73,8 @@ export default function CoursesPage({ courses }) {
               Subjects are divided into themes which contain lessons on closely
               related themes. Select a theme below to learn more about that
               topic.
-              <br /><br />
+              <br />
+              <br />
               We publish a new theme every Monday.
             </div>
           </div>
