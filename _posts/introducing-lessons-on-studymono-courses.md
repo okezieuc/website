@@ -1,7 +1,7 @@
 ---
 title: "Introducing bite-sized lessons on Studymono Courses"
 excerpt: "Studymono courses is a collection of articles that help you understand the central of a topic. Studymono Courses progress from the basics of a theme and go on to more advanced topics. Every piece of information you need to understand a theme is included so little to no background knowledge is required to start and complete a theme."
-date: "2022-02-13T20:00:00.322Z"
+date: "2022-02-25T20:00:00.322Z"
 author: "Okezie Chiedozie"
 cover: "/launching_studymono_courses_alpha_cover.png"
 ---
