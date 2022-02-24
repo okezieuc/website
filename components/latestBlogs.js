@@ -28,7 +28,7 @@ function BlogPost({ post }) {
 
 export default function LatestBlogs({ posts }) {
   return (
-    <div class="py-12 md:py-32">
+    <div class="py-12 md:py-32 bg-gray-100 mt-12 md:mt-32">
       <Container>
         <h2 class="font-heading text-4xl md:text-5xl mb-8 md:mb-16 font-bold">
           From <span class="text-indigo-700">the Blog</span>

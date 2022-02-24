@@ -18,7 +18,7 @@ export default function PastQuestionHomeSEO() {
       />
       <meta
         name="og:image"
-        content="https://res.cloudinary.com/okezieuc/image/upload/studymono/covers/past-questions-cover-image_z13zcz.png"
+        content="https://www.studymono.com/past-questions-cover.jpg"
       />
       <link rel="canonical" href="https://www.studymono.com/pastquestions" />
 
@@ -32,7 +32,7 @@ export default function PastQuestionHomeSEO() {
       />
       <meta
         name="twitter:image"
-        content="https://res.cloudinary.com/okezieuc/image/upload/studymono/covers/past-questions-cover-image_z13zcz.png"
+        content="https://www.studymono.com/past-questions-cover.jpg"
       />
     </Head>
   );

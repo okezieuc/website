@@ -51,7 +51,7 @@ export default function PastQuestionPageSEO({ questiondata, questionid }) {
       />
       <meta
         name="og:image"
-        content="https://res.cloudinary.com/okezieuc/image/upload/studymono/covers/past-questions-cover-image_z13zcz.png"
+        content="https://www.studymono.com/past-questions-cover.jpg"
       />
       <link
         rel="canonical"
@@ -80,7 +80,7 @@ export default function PastQuestionPageSEO({ questiondata, questionid }) {
 
       <meta
         name="twitter:image"
-        content="https://res.cloudinary.com/okezieuc/image/upload/studymono/covers/past-questions-cover-image_z13zcz.png"
+        content="https://www.studymono.com/past-questions-cover.jpg"
       />
     </Head>
   );

@@ -30,7 +30,7 @@ export default function IndexPage({ posts }) {
         />
         <meta
           property="og:image"
-          content="https://www.studymono.com/cover.png"
+          content="https://www.studymono.com/cover.jpg"
         />
         <link rel="canonical" href="https://www.studymono.com" />
         <meta
@@ -43,14 +43,13 @@ export default function IndexPage({ posts }) {
         />
         <meta
           name="twitter:image"
-          content="https://www.studymono.com/cover.png"
+          content="https://www.studymono.com/cover.jpg"
         />
       </Head>
 
       <Hero />
       <Vision />
       <Stats />
-      <Quote />
       <LatestBlogs posts={posts} />
       <CallToAction />
     </Layout>
