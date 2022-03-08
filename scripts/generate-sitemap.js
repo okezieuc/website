@@ -50,7 +50,16 @@ const dataschema = {
   //create /pastquestions/subject/[subject]/[number] pages
   for (let num = 0; num < Object.keys(dataschema.subjects).length; num++) {
     const subject = Object.keys(dataschema.subjects)[num];
-    for (let i = 0; i < 2; i++) {
+
+    // Find out how many pages of past questions there are for the current subject
+    const sanitySubjectPageCountQuery = `count(*[_type == "pastquestion" && subject == $subject && !(_id in path('drafts.**'))])`;
+    const count = await sanity.fetch(sanitySubjectPageCountQuery, {
+      subject: subject.toUpperCase(),
+    });
+    const pageCount = Math.floor((count - 1) / 4) + 1;
+
+    // add the required number of pages to the sitemap
+    for (let i = 0; i < pageCount; i++) {
       locations.push(
         `/pastquestions/subject/${subject.toLowerCase()}/${i + 1}`
       );

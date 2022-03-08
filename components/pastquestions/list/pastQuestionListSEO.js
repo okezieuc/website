@@ -58,7 +58,6 @@ export default function PastQuestionListSEO({
         name="og:image"
         content={`https://res.cloudinary.com/okezieuc/image/upload/studymono/categories/${subjectSlug}.png`}
       />
-      {parseInt(page) > 2 ? <meta name="robots" content="noindex" /> : ""}
       <link
         rel="canonical"
         href={`https://www.studymono.com/pastquestions/subject/${subjectSlug}/${page}`}
